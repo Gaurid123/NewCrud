@@ -15,4 +15,9 @@ public class StudentServiceIMPL implements StudentServiceI
 	@Autowired
 	StudentRepository sr;
 	private static final Logger log =LoggerFactory.getLogger(StudentServiceIMPL.class);
+	@Override
+	public void deleteStudentData(int id) {
+		// TODO Auto-generated method stub
+		sr.deleteById(id);
+	}
 }
