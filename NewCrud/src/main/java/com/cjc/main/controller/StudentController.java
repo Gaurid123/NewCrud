@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -63,11 +63,22 @@ public ResponseEntity<Student> getStudentById(@PathVariable int id)
 		si.deleteStudentData(id);
 		return new ResponseEntity<String>("data deleted successfully",HttpStatus.OK);
 	}
+
 	@PutMapping("/putdata/{id}")
 	public ResponseEntity<Student> putStudentdata(@RequestBody Student s,@PathVariable int id)
 	{
 		Student stu=si.putdata(s,id);
 				return new ResponseEntity<Student>(stu,HttpStatus.OK);
 	}
+
+	@PatchMapping("/patchDta/{id}")
+	public ResponseEntity<Student> patchStudentData(@PathVariable int id,
+			                 @RequestBody Student s)
+	{
+		Student st = si.saveData(id,s);
+		return new ResponseEntity<Student>(st,HttpStatus.CREATED);
+	}
+	
+
 }
 

@@ -42,7 +42,14 @@ public class StudentServiceIMPL implements StudentServiceI
 
 
 	@Override
-	public Student putdata(Student s, int id) {
+
+	public Student putdata(Student s, int id) 
+	{
+		return sr.save(s);
+	}
+
+	public Student saveData(int id, Student s) {
+
 		
 		return sr.save(s);
 	}
