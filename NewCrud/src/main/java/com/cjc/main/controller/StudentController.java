@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.http.ResponseEntity;
@@ -61,6 +62,12 @@ public ResponseEntity<Student> getStudentById(@PathVariable int id)
 	{
 		si.deleteStudentData(id);
 		return new ResponseEntity<String>("data deleted successfully",HttpStatus.OK);
+	}
+	@PutMapping("/putdata/{id}")
+	public ResponseEntity<Student> putStudentdata(@RequestBody Student s,@PathVariable int id)
+	{
+		Student stu=si.putdata(s,id);
+				return new ResponseEntity<Student>(stu,HttpStatus.OK);
 	}
 }
 
