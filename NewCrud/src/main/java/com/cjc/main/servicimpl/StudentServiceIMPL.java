@@ -16,9 +16,29 @@ public class StudentServiceIMPL implements StudentServiceI
 	StudentRepository sr;
 	private static final Logger log =LoggerFactory.getLogger(StudentServiceIMPL.class);
 	@Override
+
 	public Student postdata(Student stu) 
 	{
 	return sr.save(stu);
 		
 	}
+
+
+	public void deleteStudentData(int id) {
+		// TODO Auto-generated method stub
+		
+		sr.deleteById(id);
+	}
+
+	public Iterable<Student> getAllData() {
+		
+		return sr.findAll();
+	}
+	@Override
+	public Student getStudentById(int id) {
+		
+		return sr.findById(id).get();
+	}
+	
+
 }
