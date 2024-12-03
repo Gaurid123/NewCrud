@@ -18,6 +18,7 @@ public class StudentServiceIMPL implements StudentServiceI
 	@Override
 	public void deleteStudentData(int id) {
 		// TODO Auto-generated method stub
+		
 		sr.deleteById(id);
 	}
 }
