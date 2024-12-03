@@ -39,6 +39,13 @@ public class StudentServiceIMPL implements StudentServiceI
 		
 		return sr.findById(id).get();
 	}
+
+
+	@Override
+	public Student saveData(int id, Student s) {
+		
+		return sr.save(s);
+	}
 	
 
 }

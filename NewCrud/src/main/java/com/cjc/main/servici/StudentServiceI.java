@@ -18,5 +18,8 @@ public interface StudentServiceI {
 	public Student getStudentById(int id);
 
 
+	public Student saveData(int id, Student s);
+
+
 
 }
